@@ -1,0 +1,20 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t adeel/react-test -f ./client/Dockerfile.dev ./client
+
+
+script: 
+  - docker run -e CI=true USERNAME/react-test npm test
+
+
+after_success:
+  - docker build -t adeel/multi-client ./client
+  - docker build -t adeel/multi-nginx  ./nginx 
+  - docker build -t adeel/multi-server ./server
+  - docker build -t adeel/multi-worker ./worker
+
+
+
