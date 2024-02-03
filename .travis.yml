@@ -16,5 +16,14 @@ after_success:
   - docker build -t adeel/multi-server ./server
   - docker build -t adeel/multi-worker ./worker
 
+  # Login to the docker CLI, the credentials are given in the TRAVIS account as env variables
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # Take the images and push to dockerhub
+  - docker push adeel/multi-client
+  - docker push adeel/multi-nginx
+  - docker push adeel/multi-server
+  - docker push adeel/multi-worker
+
 
 
