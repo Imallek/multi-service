@@ -7,7 +7,7 @@ before_install:
 
 
 script: 
-  - docker run -e CI=true USERNAME/react-test npm test
+  - docker run -e CI=true adeel/react-test npm test
 
 
 after_success:
