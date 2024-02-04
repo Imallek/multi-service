@@ -1,0 +1,33 @@
+{
+	"AWSEBDockerrunVersion": 2,
+	"containerDefinitions": [
+		{
+			"name": "client",
+			"image": "adeel/multi-client",
+			"hostname": "client",
+			"essential": false
+
+		},
+		{
+			"name": "server",
+			"image": "adeel/multi-server",
+			"hostname": "api",
+			"essential": false
+
+		}, 
+		{
+			"name": "worker",
+			"image": "adeel/multi-worker",
+			"hostname": "worker",
+			"essential": false
+
+		},
+		{
+			"name": "nginx",
+			"image": "adeel/multi-nginx",
+			"hostname": "nginx",
+			"essential": true
+
+		} 
+	]
+}
